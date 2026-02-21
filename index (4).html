@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blindagem e Expansão da Carteira - Método Prático</title>
+    
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FONTES: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #010111;
+            --accent-blue: #0066ff;
+            --accent-glow: rgba(0, 102, 255, 0.4);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: #ffffff;
+            margin: 0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Efeito de Vidro (Glassmorphism) */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Botão com Gradiente Premium */
+        .btn-gradient {
+            background: linear-gradient(135deg, #0066ff 0%, #3b82f6 100%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .btn-gradient:hover {
+            transform: scale(1.03) translateY(-3px);
+            box-shadow: 0 15px 40px -10px var(--accent-glow);
+            filter: brightness(1.1);
+        }
+
+        /* Glow Atmosférico de Fundo */
+        .bg-glow-blue {
+            background: radial-gradient(circle at center, rgba(0, 102, 255, 0.15) 0%, rgba(1, 1, 17, 0) 70%);
+        }
+
+        /* Animações Suaves */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-15px) rotate(1deg); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-color); }
+        ::-webkit-scrollbar-thumb { background: #1a1a2e; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-blue); }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+</head>
+<body class="antialiased">
+
+    <!-- --- NAVEGAÇÃO --- -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-[#010111]/80 backdrop-blur-xl border-b border-white/5 py-5">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center font-black text-xs shadow-lg shadow-blue-500/20">B&E</div>
+                <span class="hidden sm:block text-[11px] font-black uppercase tracking-[0.3em] opacity-80">Blindagem & Expansão</span>
+            </div>
+            <a href="#investimento" class="btn-gradient px-8 py-3 rounded-lg text-[10px] font-black uppercase tracking-widest">
+                Acesso Imediato
+            </a>
+        </div>
+    </nav>
+
+    <!-- --- HERO SECTION --- -->
+    <section class="relative pt-40 pb-24 lg:pt-56 lg:pb-40 overflow-hidden">
+        <div class="absolute top-0 right-0 w-full h-full bg-glow-blue opacity-50 pointer-events-none"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                
+                <div class="space-y-10 text-center lg:text-left animate-fadeIn">
+                    <!-- Badge Autor -->
+                    <div class="flex items-center justify-center lg:justify-start gap-4">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-blue-500 blur-md opacity-20"></div>
+                            <!-- [COLOCAR IMAGEM DO AUTOR (jon.png) AQUI] -->
+                            <img src="jon.png" alt="Autor" class="w-14 h-14 rounded-full border-2 border-blue-600 object-cover relative z-10" onerror="this.src='https://i.pravatar.cc/100'">
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[11px] font-black uppercase tracking-widest text-blue-500">Jon | @jon_carteira</p>
+                            <p class="text-[10px] text-gray-500 uppercase font-bold">Especialista em Retenção & LTV</p>
+                        </div>
+                    </div>
+
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tighter">
+                        Transforme a sua <br />
+                        carteira em um <span class="text-blue-600">ímã <br class="hidden md:block" /> de novos lucros</span>
+                    </h1>
+
+                    <p class="text-lg md:text-xl text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+                        Vou te revelar o que eu faço para manter meus clientes ativos por meses e gerar receita previsível todos os dias, sem depender de sorte ou novas indicações.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 pt-4">
+                        <a href="https://pay.kiwify.com.br/lCl0YNn" class="btn-gradient w-full sm:w-auto px-14 py-6 rounded-2xl text-2xl font-black shadow-2xl tracking-tighter">
+                            Quero aprender agora!
+                        </a>
+                        
+                        <!-- Trust Badges -->
+                        <div class="flex items-center gap-6 opacity-30 grayscale">
+                           <img src="https://img.shields.io/badge/-kiwify-white?logo=kiwify&style=flat" class="h-4" alt="Kiwify">
+                           <img src="https://img.shields.io/badge/-pix-white?logo=pix&style=flat" class="h-4" alt="Pix">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lado Direito: Imagem e Chats -->
+                <div class="relative flex justify-center lg:justify-end">
+                    <div class="relative z-10 w-full max-w-[500px]">
+                        <!-- [COLOCAR IMAGEM PRINCIPAL (jon.png) AQUI] -->
+                        <img src="jon.png" alt="Especialista" class="w-full h-auto drop-shadow-[0_0_120px_rgba(0,102,255,0.25)] relative z-10" onerror="this.src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800'">
+                        
+                        <!-- Floating Chat Bubbles -->
+                        <div class="absolute top-1/4 -right-4 md:-right-12 glass-card p-5 rounded-2xl max-w-[220px] shadow-2xl animate-float z-20">
+                            <p class="text-[9px] font-black uppercase text-blue-500 mb-2">Novo Contrato • 10:56</p>
+                            <p class="text-[12px] font-bold leading-tight">"Jon, rodamos a expansão e o cliente fechou o Upsell na hora!"</p>
+                        </div>
+
+                        <div class="absolute bottom-1/4 -left-4 md:-left-12 glass-card p-5 rounded-2xl max-w-[240px] shadow-2xl animate-float z-20" style="animation-delay: 2s;">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                                <p class="text-[9px] font-black uppercase text-gray-500">Blindagem Ativa • 18:35</p>
+                            </div>
+                            <p class="text-[12px] font-bold leading-tight">Churn reduzido a zero este mês. A base está 100% protegida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- PARA QUEM É --- -->
+    <section class="py-32 bg-[#010111] border-y border-white/5">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid lg:grid-cols-2 gap-20 items-start">
+                <div class="space-y-8 animate-fadeIn">
+                    <p class="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px]">Segmentação de Mercado</p>
+                    <h2 class="text-4xl md:text-6xl font-black leading-[1.05] tracking-tighter">
+                        Estes são os profissionais que a <span class="text-blue-600">Blindagem</span> mais favorece
+                    </h2>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed max-w-md">
+                        O método foi criado para quem presta serviços e quer ter a segurança de um caixa previsível e crescente.
+                    </p>
+                </div>
+                
+                <div class="grid gap-6">
+                    <!-- Item 1 -->
+                    <div class="flex gap-6 group p-7 rounded-[32px] hover:bg-white/[0.03] transition-all duration-500 border border-transparent hover:border-white/10">
+                        <div class="w-14 h-14 flex-shrink-0 glass-card rounded-2xl flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-black tracking-tight">Gestores de Tráfego</h3>
+                            <p class="text-sm text-gray-500 leading-relaxed">Para quem quer parar de perder clientes logo após o primeiro mês de gestão.</p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="flex gap-6 group p-7 rounded-[32px] hover:bg-white/[0.03] transition-all duration-500 border border-transparent hover:border-white/10">
+                        <div class="w-14 h-14 flex-shrink-0 glass-card rounded-2xl flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-black tracking-tight">Social Media & Designers</h3>
+                            <p class="text-sm text-gray-500 leading-relaxed">Transforme trabalhos pontuais em contratos de retenção recorrente.</p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="flex gap-6 group p-7 rounded-[32px] hover:bg-white/[0.03] transition-all duration-500 border border-transparent hover:border-white/10">
+                        <div class="w-14 h-14 flex-shrink-0 glass-card rounded-2xl flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-black tracking-tight">Consultores B2B</h3>
+                            <p class="text-sm text-gray-500 leading-relaxed">Domine a lógica do LTV para escalar sua operação com previsibilidade.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SUMÁRIO / MÓDULOS --- -->
+    <section class="py-32 relative overflow-hidden">
+        <div class="absolute top-1/2 left-0 w-80 h-80 bg-blue-600/5 blur-[120px] pointer-events-none"></div>
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-20 space-y-4">
+                <p class="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px]">Conteúdo Estratégico</p>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tighter italic">O que você vai dominar no Ebook</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-x-16 gap-y-4">
+                <div class="flex items-center gap-5 py-6 border-b border-white/5 group hover:border-blue-500 transition-colors">
+                    <span class="text-blue-600 font-black text-xs opacity-50 group-hover:opacity-100">01.</span>
+                    <span class="text-lg font-bold text-gray-300 group-hover:text-white">A Matemática da Blindagem</span>
+                </div>
+                <div class="flex items-center gap-5 py-6 border-b border-white/5 group hover:border-blue-500 transition-colors">
+                    <span class="text-blue-600 font-black text-xs opacity-50 group-hover:opacity-100">02.</span>
+                    <span class="text-lg font-bold text-gray-300 group-hover:text-white">Churn: Como antecipar a saída</span>
+                </div>
+                <div class="flex items-center gap-5 py-6 border-b border-white/5 group hover:border-blue-500 transition-colors">
+                    <span class="text-blue-600 font-black text-xs opacity-50 group-hover:opacity-100">03.</span>
+                    <span class="text-lg font-bold text-gray-300 group-hover:text-white">Precificação por Valor & LTV</span>
+                </div>
+                <div class="flex items-center gap-5 py-6 border-b border-white/5 group hover:border-blue-500 transition-colors">
+                    <span class="text-blue-600 font-black text-xs opacity-50 group-hover:opacity-100">04.</span>
+                    <span class="text-lg font-bold text-gray-300 group-hover:text-white">A Lógica da Ancoragem</span>
+                </div>
+                <div class="flex items-center gap-5 py-6 border-b border-white/5 group hover:border-blue-500 transition-colors">
+                    <span class="text-blue-600 font-black text-xs opacity-50 group-hover:opacity-100">05.</span>
+                    <span class="text-lg font-bold text-gray-300 group-hover:text-white">Health Score do Cliente</span>
+                </div>
+                <div class="flex items-center gap-5 py-6 border-b border-white/5 group hover:border-blue-500 transition-colors">
+                    <span class="text-blue-600 font-black text-xs opacity-50 group-hover:opacity-100">06.</span>
+                    <span class="text-lg font-bold text-gray-300 group-hover:text-white">Estratégias de Upsell (Expansão)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- INVESTIMENTO --- -->
+    <section id="investimento" class="py-32 relative overflow-hidden bg-glow-blue/10">
+        <div class="container mx-auto px-6 max-w-6xl relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+                <div class="space-y-10">
+                    <p class="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px]">Último Passo</p>
+                    <h2 class="text-5xl md:text-8xl font-black leading-[0.9] tracking-tighter">
+                        Tenha uma carteira <br /> <span class="text-blue-600 italic">inquebrável!</span>
+                    </h2>
+                    <p class="text-gray-400 text-xl font-light leading-relaxed max-w-lg">
+                        Esqueça a dependência de indicações. Domine a arte da retenção com o guia prático utilizado pelos maiores players de serviço.
+                    </p>
+                </div>
+
+                <div class="glass-card p-12 md:p-16 rounded-[60px] border border-white/10 shadow-3xl text-center space-y-12 relative group overflow-hidden">
+                    <div class="absolute -inset-1 bg-blue-600 opacity-0 blur-3xl group-hover:opacity-5 transition-opacity duration-700"></div>
+                    
+                    <div class="space-y-4">
+                        <h4 class="text-2xl font-black tracking-tight uppercase italic text-blue-500">Blindagem & Expansão</h4>
+                        <p class="text-[11px] font-black uppercase tracking-widest text-gray-600">Conteúdo 100% Digital</p>
+                    </div>
+                    
+                    <ul class="space-y-5 text-left inline-block">
+                        <li class="flex items-center gap-5 text-sm font-semibold">
+                            <span class="w-6 h-6 rounded-full bg-blue-600/20 text-blue-500 flex items-center justify-center text-[10px] font-black">✔</span>
+                            Acesso imediato à área de membros
+                        </li>
+                        <li class="flex items-center gap-5 text-sm font-semibold">
+                            <span class="w-6 h-6 rounded-full bg-blue-600/20 text-blue-500 flex items-center justify-center text-[10px] font-black">✔</span>
+                            Framework de Retenção Passo a Passo
+                        </li>
+                        <li class="flex items-center gap-5 text-sm font-semibold">
+                            <span class="w-6 h-6 rounded-full bg-blue-600/20 text-blue-500 flex items-center justify-center text-[10px] font-black">✔</span>
+                            Scripts de Expansão (Upsell)
+                        </li>
+                    </ul>
+
+                    <div class="py-8 space-y-2 relative">
+                        <p class="text-[11px] text-gray-600 uppercase font-black tracking-[0.5em]">Hoje por apenas</p>
+                        <div class="flex items-baseline justify-center">
+                            <span class="text-4xl font-black text-blue-600 mr-2">R$</span>
+                            <span class="text-[140px] font-black tracking-tighter leading-none">67</span>
+                            <span class="text-2xl font-black text-gray-700">,00</span>
+                        </div>
+                        <p class="text-[10px] text-gray-600 uppercase font-bold tracking-widest mt-6">Pagamento Único • Vitalício</p>
+                    </div>
+
+                    <a href="https://pay.kiwify.com.br/lCl0YNn" class="btn-gradient block w-full py-7 rounded-2xl text-2xl font-black shadow-2xl tracking-tighter uppercase relative z-10">
+                        QUERO O EBOOK AGORA!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FOOTER --- -->
+    <footer class="py-20 border-t border-white/5 opacity-40 hover:opacity-100 transition-opacity duration-1000">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10">
+                <div class="flex items-center gap-4">
+                    <div class="w-7 h-7 bg-white/10 rounded flex items-center justify-center font-black text-[9px]">B&E</div>
+                    <p class="text-[10px] font-black uppercase tracking-[0.3em]">Blindagem & Expansão</p>
+                </div>
+                
+                <p class="text-[10px] uppercase font-bold tracking-widest text-center text-gray-500">
+                    © 2025 • Todos os direitos reservados • Jon Mentoria LTDA
+                </p>
+                
+                <div class="flex items-center gap-8">
+                   <span class="text-[10px] font-black uppercase tracking-widest">Plataforma Segura</span>
+                   <div class="h-5 w-[1px] bg-white/10"></div>
+                   <span class="text-[10px] font-black uppercase tracking-widest">Privacidade</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
